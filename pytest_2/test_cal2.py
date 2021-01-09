@@ -20,8 +20,8 @@ class TestCal:
             res = get_calc.div(get_div[0], get_div[1])
         except Exception as e:
             print(e)
-        # assert res == get_div[2]
-        pytest
+        assert res == get_div[2]
+
 
 
     # 减法
