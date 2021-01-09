@@ -4,7 +4,7 @@ from selenium import webdriver
 from selenium.webdriver.common.by import By
 
 
-class TestDefaultSuite():
+class TestDefaultSuite:
     def setup_method(self):
         chrome_args = webdriver.ChromeOptions()
         chrome_args.debugger_address = "127.0.0.1:9222"
