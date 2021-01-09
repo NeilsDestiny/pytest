@@ -9,3 +9,7 @@ class TestRegister():
 
     def test_login_to_register(self):
         assert self.main.goto_login().goto_register().register()
+
+    # 关闭driver
+    def teardown(self):
+        self.main.close()
