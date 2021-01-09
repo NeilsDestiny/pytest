@@ -1,5 +1,7 @@
 import json
 from time import sleep
+
+import pytest
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 
@@ -24,7 +26,7 @@ class TestDefaultSuite:
         #   json.dump(cookies,f)
 
         self.driver.get("https://work.weixin.qq.com/")
-        self.driver.maximize_window()
+        # self.driver.maximize_window()
         # 打开cookie文件
         with open("cookie.json", "r") as f:
             # 读取 cookies
@@ -37,6 +39,7 @@ class TestDefaultSuite:
         # 企业微信的点击客户联系
         self.driver.find_element(By.XPATH, '//*[@id="menu_customer"]/span').click()
 
+    @pytest.mark.skip
     def test_baidu(self):
         self.driver.get("https://www.baidu.com/")
         # self.driver.maximize_window()
