@@ -1,17 +1,18 @@
 import json
 from time import sleep
-
 from selenium import webdriver
+from selenium.webdriver.common.by import By
 from selenium.webdriver.remote.webdriver import WebDriver
 
 
 class BasePage:
-    def __init__(self,driver:WebDriver=None):
+    def __init__(self, driver: WebDriver = None):
         # 此处对driver进行复用，如果不存在driver,就构造一个新的
         if driver is None:
             # main页面需要用，首次使用时构造新driver
             self.driver = webdriver.Chrome()
             self._cookie_login()
+
         else:
             # Login和Register等页面需要用这个方法，避免重复构造driver
             self.driver = driver
@@ -28,11 +29,13 @@ class BasePage:
         for cookie in cookies:
             self.driver.add_cookie(cookie)
         self.driver.get("https://work.weixin.qq.com/wework_admin/frame#index")
+        # #手动登录的方式
+        # self.find_ele(By.CSS_SELECTOR, ".index_top_operation_loginBtn").click()
+        # sleep(5)
 
     def find_ele(self, by, value):
-        return self.driver.find_element(by,value)
+        return self.driver.find_element(by, value)
 
     def close(self):
         sleep(10)
         self.driver.quit()
-

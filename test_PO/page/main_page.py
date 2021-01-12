@@ -9,6 +9,7 @@ class MainPage(BasePage):
         pass
 
     def goto_add_member(self):
+        #点击添加成员
         self.find_ele(By.CSS_SELECTOR,".index_service_cnt_item_title").click()
         return AddMemberPage(self.driver)
 
