@@ -18,6 +18,9 @@ class BasePage:
         sleep(5)
 
 
-    def teardown(self):
+    def quit(self):
         self.driver.quit()
+
+    def find(self,by,value):
+        return self.driver.find_element(by,value)
 
